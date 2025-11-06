@@ -26,7 +26,7 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>.*), /${segment}
         - id: analytics-service
-          uri: http://analytics-service:8080
+          uri: http://analytic-service:8080
           predicates:
             - Path=/api/analytics/**
           filters:
