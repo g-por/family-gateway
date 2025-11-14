@@ -31,17 +31,17 @@ spring:
             - name: RewritePath
               args:
                 regexp: ^/api/budget/(?<segment>.*)
-                replacement: /${segment}
+                replacement: /budget/${segment}
 
         - id: analytics-service
-          uri: http://analytic-service:8080
+          uri: http://analitic-service:8080
           predicates:
             - Path=/api/analytics/**
           filters:
             - name: RewritePath
               args:
                 regexp: ^/api/analytics/(?<segment>.*)
-                replacement: /${segment}
+                replacement: /api/${segment}
 
           default-filters:
             - AddResponseHeader=X-Gateway, FamilyBudget
@@ -55,6 +55,8 @@ management:
     health:
       probes:
         enabled: true
+    gateway:
+      enabled: true
 
 logging:
   level:
