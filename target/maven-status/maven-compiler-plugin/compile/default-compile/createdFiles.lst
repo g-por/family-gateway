@@ -1,4 +1,0 @@
-com\familybudget\gateway\PingController.class
-com\familybudget\gateway\GatewayApplication.class
-com\familybudget\gateway\LoggingFilter.class
-com\familybudget\gateway\NettyAccessLogConfig.class
