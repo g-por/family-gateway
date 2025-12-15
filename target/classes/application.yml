@@ -18,10 +18,7 @@ spring:
           predicates:
             - Path=/api/users/**
           filters:
-            - name: RewritePath
-              args:
-                regexp: ^/api/users/(?<segment>.*)
-                replacement: /api/${segment}
+            - RewritePath=/api/users/(?<segment>.*),/api/${segment}
 
         - id: budget-service
           uri: http://budget-service:8080
@@ -30,11 +27,11 @@ spring:
           filters:
             - name: RewritePath
               args:
-                regexp: "^/api/budget/(?<segment>.*)"
-                replacement: "/budget/${segment}"
+                regexp: ^/api/budget/(?<segment>.*)
+                replacement: /budget/${segment}
 
         - id: analytics-service
-          uri: http://analytic-service:8080
+          uri: http://analitic-service:8080
           predicates:
             - Path=/api/analytics/**
           filters:
