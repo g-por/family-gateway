@@ -18,10 +18,7 @@ spring:
           predicates:
             - Path=/api/users/**
           filters:
-            - name: RewritePath
-              args:
-                regexp: ^/api/users/(?<segment>.*)
-                replacement: /api/${segment}
+            - RewritePath=/api/users/(?<segment>.*),/api/${segment}
 
         - id: budget-service
           uri: http://budget-service:8080
